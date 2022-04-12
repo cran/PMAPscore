@@ -28,7 +28,6 @@ get_final_signature<-function(pfs_score,sur,wilcox_p=0.05,uni_cox_p=0.01){
   wilcox<-apply(pfs_score,1,function(x){wilcox.test(x[which(sur$STATUS==0)],x[-which(sur$STATUS==0)])$p.value})
   wilcox<-as.matrix(wilcox)
   wilcox_path<-rownames(wilcox)[which(wilcox[,1]<wilcox_p)]
-  ####path_coxdata
   pfs_score<-pfs_score[match(wilcox_path,rownames(pfs_score)),]
   mutantdata1<-t(pfs_score)
   path_name<-cbind(colnames(mutantdata1),paste0("a",1:length(colnames(mutantdata1))))
@@ -40,9 +39,7 @@ get_final_signature<-function(pfs_score,sur,wilcox_p=0.05,uni_cox_p=0.01){
   colnames(mutantdata1)[dim(mutantdata1)[2]]<-"event"
   DE_path_sur<-mutantdata1
   DE_path_sur<-as.data.frame(DE_path_sur)
-  #######单因素cox
   path_Ucox_res<-get_univarCox_result(DE_path_sur)
-  ####LASSO
   pfs_score<-t(pfs_score)
   colnames(pfs_score)<-path_name[,2]
   pfs_score<-pfs_score[,match(rownames(path_Ucox_res)[which(path_Ucox_res$p.value<uni_cox_p)],colnames(pfs_score))]
@@ -53,7 +50,7 @@ get_final_signature<-function(pfs_score,sur,wilcox_p=0.05,uni_cox_p=0.01){
   lo<-match(rownames(data1),rownames(pfs_score))
   path_mut1<-pfs_score[na.omit(lo),]
   data2<-data1[match(rownames(path_mut1),rownames(data1)) ,]
-  lasso.cv <- cv.glmnet(path_mut1,data2,family="cox",alpha=1)     #Lasso回归（alpha = 1）/岭回归（alpha = 0）
+  lasso.cv <- cv.glmnet(path_mut1,data2,family="cox",alpha=1)
   coef_lasso <- as.data.frame(as.matrix(coef(lasso.cv,s=lasso.cv$lambda.min)))
   pathway_result <- rownames(coef_lasso)[which(coef_lasso$`1`!=0)]
   pathway_result<-path_name[match(pathway_result,path_name[,2]),1]

@@ -1,7 +1,7 @@
 Package: PMAPscore
 Type: Package
 Title: Identify Prognosis-Related Pathways Altered by Somatic Mutation
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: c(person(given = "Junwei", family = "Han", email = "hanjunwei1981@163.com", role  = c("aut", "cre", "cph")),
              person(given = "Yalan", family = "He", role  = "aut"),person(given = "Xiangmei", family = "Li", role  = "aut"))
 Maintainer: Junwei Han <hanjunwei1981@163.com>
@@ -16,9 +16,9 @@ VignetteBuilder: knitr
 Depends: R (>= 4.1.0)
 Suggests: knitr, rmarkdown
 NeedsCompilation: no
-Packaged: 2022-04-02 09:18:30 UTC; DELL
+Packaged: 2022-04-12 07:34:51 UTC; DELL
 Author: Junwei Han [aut, cre, cph],
   Yalan He [aut],
   Xiangmei Li [aut]
 Repository: CRAN
-Date/Publication: 2022-04-05 10:12:31 UTC
+Date/Publication: 2022-04-12 08:12:37 UTC

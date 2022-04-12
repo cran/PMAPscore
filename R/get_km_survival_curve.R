@@ -30,7 +30,7 @@ get_km_survival_curve<-function(km_data,cut_point,TRAIN=TRUE,risk.table=TRUE){
     cat(cut_point)
   }else
     cut_point<-cut_point
-  lo<-which(newdata[,3]> cut_point)                                                     #####训练集阈值分类
+  lo<-which(newdata[,3]> cut_point)
   lo1<-which(newdata[,3] <= cut_point)
   newdata[lo,3]<-"high"
   newdata[lo1,3]<-"low"

@@ -12,7 +12,7 @@ get_sam_cla(
   sur,
   path_Ucox_mul,
   sig,
-  cut_off = 0.986,
+  cut_off = -0.986,
   data.dir = NULL,
   organism = "hsa",
   TRAIN = FALSE
@@ -51,5 +51,5 @@ Function `get_sample_classification` This function is used to judge the classifi
 #Load the data.
 data(mut_sam,gene_Ucox,symbol_Entrez,path_cox_data,sur,path_Ucox_mul)
 #perform function `get_sample_cla`.
-\donttest{get_sam_cla(mut_sam,gene_Ucox,symbol_Entrez,path_cox_data,sur,path_Ucox_mul,sig,cut_off=0.986)}
+\donttest{get_sam_cla(mut_sam,gene_Ucox,symbol_Entrez,path_cox_data,sur,path_Ucox_mul,sig,cut_off=-0.986)}
 }

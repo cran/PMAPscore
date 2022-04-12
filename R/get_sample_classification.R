@@ -18,12 +18,12 @@
 #' #Load the data.
 #' data(mut_sam,gene_Ucox,symbol_Entrez,path_cox_data,sur,path_Ucox_mul)
 #' #perform function `get_sample_cla`.
-#' \donttest{get_sam_cla(mut_sam,gene_Ucox,symbol_Entrez,path_cox_data,sur,path_Ucox_mul,sig,cut_off=0.986)}
+#' \donttest{get_sam_cla(mut_sam,gene_Ucox,symbol_Entrez,path_cox_data,sur,path_Ucox_mul,sig,cut_off=-0.986)}
 
 
 get_sam_cla<-function(mut_sam,gene_Ucox,symbol_Entrez,
                                     path_cox_data,sur,path_Ucox_mul,sig,
-                                    cut_off=0.986,data.dir=NULL,organism="hsa",TRAIN=FALSE){
+                                    cut_off=-0.986,data.dir=NULL,organism="hsa",TRAIN=FALSE){
   a<-colnames(mut_sam)
   rownames(mut_sam)<-gsub(pattern = "-",replacement = ".",rownames(mut_sam))
   mut_sam<-as.matrix(mut_sam[match(rownames(gene_Ucox)[which(gene_Ucox$HR<1)],rownames(mut_sam)),])

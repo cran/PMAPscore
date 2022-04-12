@@ -38,7 +38,7 @@ get_risk_score<-function(final_signature,pfs_score,path_Ucox_mul_res,sur,TRAIN=T
   for(j in 1:dim(res)[1]){
     score<-0
     for(k in 1:num){
-      score<-score+res[j,k]*-Ucox_mul_res[match(names(res[j,])[k],rownames(Ucox_mul_res)),1]
+      score<-score+res[j,k]*Ucox_mul_res[match(names(res[j,])[k],rownames(Ucox_mul_res)),1]
     }
     res[j,dim(res)[2]]<-score
   }

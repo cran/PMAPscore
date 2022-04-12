@@ -39,7 +39,7 @@ final_signature
 #Load sample mutation data
 data(mut_sam,gene_Ucox,symbol_Entrez,path_cox_data,sur,path_Ucox_mul,sig)
 #Perform the function `get_sample_classification`
-get_sam_cla(mut_sam,gene_Ucox,symbol_Entrez,path_cox_data,sur,path_Ucox_mul,sig,cut_off=0.986)
+get_sam_cla(mut_sam,gene_Ucox,symbol_Entrez,path_cox_data,sur,path_Ucox_mul,sig,cut_off=-0.986)
 #class_res
 
 ## ----fig.height=6, fig.width=8,warning=FALSE,results='hold'-------------------
